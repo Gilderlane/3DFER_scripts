@@ -11,13 +11,16 @@ input_dir="${ambiente_dir}/DATA/bosphorus-outlier-density200-crop80-icp/completa
 output_dir1="../../DATA/bosphorus-outlier-density200-crop80-icp/FER/faces/emotions" # Change 'faces' to landmarks and run again
 output_dir2="../../DATA/bosphorus-outlier-density200-crop80-icp/FER/faces/neutrals" # Change 'faces' to landmarks and run again
 
+mkdir -p $output_dir1
+mkdir -p $output_dir2
+
 green=`tput setaf 2`
 reset=`tput sgr0`
 
 count_files=$(ls $(dirname $(dirname $output_dir1))/bosphorus_expressive_subjects_*.txt 2>/dev/null | wc -l)
 # If there is no list of balanced expressive subjects, make it
 if [[ "$count_files" -eq "0" ]]; then
-	./list_expressive_subjects_only.sh
+	./list_expressive_subjects_only.sh "$ambiente_dir"
 	echo "${green}Done!"
 fi
 

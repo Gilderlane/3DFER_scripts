@@ -14,6 +14,8 @@ file_name="bosphorus_expressive_subjects_${date}.txt"
 green=`tput setaf 2`
 reset=`tput sgr0`
 
+mkdir $output_dir
+
 # For each subject directory
 for subject in $(ls $input_dir)
 do
