@@ -2,11 +2,13 @@
 
 ############################################################################
 # Performs ONE independent round of 10-fold cross-validation
+# ambiente_dir holds the path to your "AMBIENTE3D" directory
+# usage: ./10-fold-cross-validation.sh "/path/to/AMBIENTE3D/directory"
 ############################################################################
 
-mestrado_dir="/home/latin/Documentos/MESTRADO"
-input_dir="${mestrado_dir}/DATA/bosphorus-outlier-density200-crop80-icp/FER/faces"
-output_dir="${mestrado_dir}/DATA/bosphorus-outlier-density200-crop80-icp/FER/results/10-fold"
+ambiente_dir=$1
+input_dir="${ambiente_dir}/DATA/bosphorus-outlier-density200-crop80-icp/FER/faces"
+output_dir="${ambiente_dir}/DATA/bosphorus-outlier-density200-crop80-icp/FER/results/10-fold"
 
 count_files=$(ls $(dirname $input_dir)/bosphorus_expressive_subjects_*.txt 2>/dev/null | wc -l)
 

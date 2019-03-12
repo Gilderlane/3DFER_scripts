@@ -2,10 +2,12 @@
 
 #########################################################################################################
 # Lists all subjects that have samples of all six emotional expressions and saves the list in a text file
+# ambiente_dir holds the path to your "AMBIENTE3D" directory
+# usage: ./list_expressive_subjects_only.sh "/path/to/AMBIENTE3D/directory"
 #########################################################################################################
 
-mestrado_dir="/home/latin/Documentos/MESTRADO"
-input_dir="${mestrado_dir}/DATA/bosphorus-outlier-density200-crop80-icp/completa/faces"
+ambiente_dir=$1
+input_dir="${ambiente_dir}/DATA/bosphorus-outlier-density200-crop80-icp/completa/faces"
 output_dir="../../DATA/bosphorus-outlier-density200-crop80-icp/FER"
 date=$(date +'%Y%m%d')
 file_name="bosphorus_expressive_subjects_${date}.txt"

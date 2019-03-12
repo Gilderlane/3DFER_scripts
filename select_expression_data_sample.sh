@@ -2,10 +2,12 @@
 
 ########################################################################################
 # Selects data sample for expression recognition and saves in specific directories
+# ambiente_dir holds the path to your "AMBIENTE3D" directory
+# usage: ./select_expression_data_sample.sh "/path/to/AMBIENTE3D/directory"
 ########################################################################################
 
-mestrado_dir="/home/latin/Documentos/MESTRADO"
-input_dir="${mestrado_dir}/DATA/bosphorus-outlier-density200-crop80-icp/completa/faces" # Change 'faces' to landmarks and run again
+ambiente_dir=$1
+input_dir="${ambiente_dir}/DATA/bosphorus-outlier-density200-crop80-icp/completa/faces" # Change 'faces' to landmarks and run again
 output_dir1="../../DATA/bosphorus-outlier-density200-crop80-icp/FER/faces/emotions" # Change 'faces' to landmarks and run again
 output_dir2="../../DATA/bosphorus-outlier-density200-crop80-icp/FER/faces/neutrals" # Change 'faces' to landmarks and run again
 
