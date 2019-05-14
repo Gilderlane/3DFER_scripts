@@ -22,7 +22,8 @@ for EXP in expressions:
 		cloudN = "../../DATA/bosphorus-outlier-density200-crop80-icp/FER/faces/neutrals/"+SUB+"_N_N_0.pcd"
 		cloudE = "../../DATA/bosphorus-outlier-density200-crop80-icp/FER/faces/emotions/"+SUB+"_E_"+EXP+"_0.pcd"
 		# threshold em milimetros
-		threshold=3
+		threshold_inf=5
+		threshold_sup=10
 		pcdN = read_point_cloud(cloudN)
 		pcdE = read_point_cloud(cloudE)
 
@@ -32,7 +33,11 @@ for EXP in expressions:
 		nbrs = NearestNeighbors(n_neighbors=1, algorithm='ball_tree').fit(xyzE)
 		distances, indices = nbrs.kneighbors(xyzN)
 
-		xyzDiff = xyzE[indices[distances>threshold]]
+		# xyzDiff = xyzE[indices[distances>threshold]]
+		gt_thresh = distances>threshold_inf
+		lt_thresh = distances<threshold_sup
+		cond = gt_thresh & lt_thresh
+		xyzDiff = xyzE[indices[cond]]
 		# print(np.shape(PP), np.shape(xyzDiff))
 		PP = np.append(PP, xyzDiff, axis=0)
 
